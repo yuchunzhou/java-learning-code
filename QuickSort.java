@@ -3,7 +3,7 @@ import java.util.Arrays;
 
 public class QuickSort {
 
-    public int[] sort(int[] sortedNums) {
+    private int[] sort(int[] sortedNums) {
         if (sortedNums.length <= 1) {
             return sortedNums;
         }
