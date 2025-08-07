@@ -1,13 +1,21 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 class SleepingThread extends Thread {
 
     private int sortedNum = 0;
+    private static ArrayList<Integer> sortedResult = new ArrayList<>();
 
     public void setSortedNum(int sortedNum) {
         this.sortedNum = sortedNum;
     }
 
-    public int getSortedNum() {
-        return sortedNum;
+    synchronized private static void updateSortedResult(int sortedNum) {
+        sortedResult.add(sortedNum);
+    }
+
+    public static int[] getSortedResult() {
+        return sortedResult.stream().mapToInt(t -> t).toArray();
     }
 
     @Override
@@ -15,11 +23,10 @@ class SleepingThread extends Thread {
         super.run();
 
         try {
-            sleep(this.getSortedNum() * 1000);
+            sleep(sortedNum * 10);
+            updateSortedResult(sortedNum);
         } catch (InterruptedException e) {
             System.out.println(e.toString());
-        } finally {
-            System.out.printf("Current number is %d\n", this.getSortedNum());
         }
     }
 }
@@ -43,5 +50,7 @@ public class SleepingSort {
                 System.out.println(e.toString());
             }
         }
+
+        System.out.printf("sorted result: %s\n", Arrays.toString(SleepingThread.getSortedResult()));
     }
 }
