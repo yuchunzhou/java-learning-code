@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class InsertionSort {
 
-    public int[] sort(int[] sortedNums) {
+    private int[] sort(int[] sortedNums) {
         for (int i = 1; i < sortedNums.length; i++) {
             for (int j = 0; j < i; j++) {
                 if (sortedNums[j] > sortedNums[i]) {
