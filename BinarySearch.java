@@ -27,12 +27,12 @@ public class BinarySearch {
         System.out.printf("searched numbers: %s\n", Arrays.toString(searchedNums));
 
         QuickSort quickSort = new QuickSort();
-        int[] searchedNums_ = quickSort.sort(searchedNums);
+        searchedNums = quickSort.sort(searchedNums);
 
         int searchedNum = Integer.parseInt(args[args.length - 1]);
         System.out.printf("searched number: %s\n", searchedNum);
 
         BinarySearch binarySearch = new BinarySearch();
-        System.out.printf("find it? %s\n", binarySearch.search(searchedNums_, searchedNum));
+        System.out.printf("find it? %s\n", binarySearch.search(searchedNums, searchedNum));
     }
 }
