@@ -1,12 +1,12 @@
 import java.util.Arrays;
 
 public class ShellSort {
-    private int getInterval(int length) {
+    private int get_interval(int length) {
         return length / 2;
     }
 
     private int[] sort(int[] sortedNums) {
-        int interval = getInterval(sortedNums.length);
+        int interval = get_interval(sortedNums.length);
 
         while (interval != 0) {
             for (int i = 0; i < sortedNums.length; i++) {
@@ -19,7 +19,7 @@ public class ShellSort {
                 }
             }
 
-            interval = getInterval(interval);
+            interval = get_interval(interval);
         }
 
         return sortedNums;
