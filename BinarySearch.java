@@ -23,11 +23,9 @@ public class BinarySearch {
         for (int i = 0; i < args.length - 1; i++) {
             searchedNums[i] = Integer.parseInt(args[i]);
         }
+        Arrays.sort(searchedNums);
 
         System.out.printf("searched numbers: %s\n", Arrays.toString(searchedNums));
-
-        QuickSort quickSort = new QuickSort();
-        searchedNums = quickSort.sort(searchedNums);
 
         int searchedNum = Integer.parseInt(args[args.length - 1]);
         System.out.printf("searched number: %s\n", searchedNum);
